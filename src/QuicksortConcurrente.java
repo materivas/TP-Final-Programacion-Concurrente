@@ -1,3 +1,5 @@
+import java.util.Random;
+
 // Clase principal para la implementación de QuickSort concurrente utilizando hilos
 public class QuicksortConcurrente {
 
@@ -72,7 +74,14 @@ public class QuicksortConcurrente {
 
     // Método principal para probar el código
     public static void main(String[] args) {
-        int[] array = {10, 7, 8, 9, 1, 5, 4, 2, 6, 3}; // Array de ejemplo
+    	int n = 100; // Número de elementos en el array
+        int array[] = new int[n];
+        Random random = new Random();
+
+        // Llenar el array con números aleatorios
+        for (int i = 0; i < n; i++) {
+            array[i] = random.nextInt(100); // Números aleatorios entre 0 y el número recibido por parámetro
+        }
         
         // Crea una instancia de QuicksortConcurrente
         QuicksortConcurrente sorter = new QuicksortConcurrente(array, 0, array.length - 1); 
@@ -89,6 +98,9 @@ public class QuicksortConcurrente {
         }
         System.out.println(); // Nueva línea
         System.out.println("Tiempo de ejecución (nanosegundos): " + duration); // Imprime el tiempo de ejecución
-    }
+
+
+
+}
 }
 

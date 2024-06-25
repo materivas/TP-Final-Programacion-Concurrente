@@ -1,4 +1,7 @@
 //Clase Quicksort
+
+import java.util.Random;
+
 public class Quicksort {
     
     // Función que realiza la partición del array y devuelve el índice de partición
@@ -46,8 +49,14 @@ public class Quicksort {
 
     // Función principal (driver) 
     public static void main(String args[]) {
-        int arr[] =  {10, 7, 8, 9, 1, 5, 4, 2, 6, 3};
-        int n = arr.length;
+    	int n = 100; // Número de elementos en el array
+        int array[] = new int[n];
+        Random random = new Random();
+
+        // Llenar el array con números aleatorios
+        for (int i = 0; i < n; i++) {
+            array[i] = random.nextInt(100); // Números aleatorios entre 0 y el número que reciba por parámetro
+        }
         
         // Crea una instancia de QuickSort
         Quicksort ob = new Quicksort(); 
@@ -55,7 +64,7 @@ public class Quicksort {
         // Mide el tiempo de ejecución
         long startTime = System.nanoTime(); // Obtiene el tiempo de inicio en nanosegundos
         
-        ob.sort(arr, 0, n - 1); // Llama a la función sort
+        ob.sort(array, 0, n - 1); // Llama a la función sort
         
         long endTime = System.nanoTime(); // Obtiene el tiempo de finalización en nanosegundos
 
@@ -65,7 +74,7 @@ public class Quicksort {
         
         // Itera sobre el array ordenado
         for (int i = 0; i < n; ++i) {
-            System.out.print(arr[i] + " "); 
+            System.out.print(array[i] + " "); 
             System.out.println(); 
             
             // Imprime el tiempo de ejecución
